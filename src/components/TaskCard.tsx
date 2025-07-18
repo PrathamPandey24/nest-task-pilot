@@ -20,6 +20,13 @@ const priorityColors = {
   urgent: "bg-destructive",
 };
 
+const priorityCardColors = {
+  low: "bg-gradient-card border-muted/30",
+  medium: "bg-gradient-to-br from-warning/10 to-warning/5 border-warning/30",
+  high: "bg-gradient-to-br from-info/10 to-info/5 border-info/30",
+  urgent: "bg-gradient-to-br from-destructive/15 to-destructive/5 border-destructive/40",
+};
+
 const categoryColors = {
   work: "bg-primary",
   personal: "bg-accent",
@@ -39,7 +46,7 @@ export const TaskCard = ({ task, onUpdate, onDelete, onEdit }: TaskCardProps) =>
   };
 
   return (
-    <Card className={`bg-gradient-card border-border/50 hover:border-primary/20 transition-all duration-300 ${
+    <Card className={`${priorityCardColors[task.priority]} hover:border-primary/20 transition-all duration-300 ${
       isOverdue ? 'border-destructive/50' : ''
     }`}>
       <CardHeader className="pb-3">
