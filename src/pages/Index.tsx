@@ -8,6 +8,7 @@ import { Dashboard } from "@/components/Dashboard";
 import { Task } from "@/types/task";
 import { Plus, BarChart3, CheckSquare, AlertCircle } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import backgroundImage from "@/assets/background.jpg";
 
 const Index = () => {
   const { tasks, addTask, updateTask, deleteTask, getAnalytics, overdueTasks } = useTasks();
@@ -36,8 +37,17 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-secondary">
-      <div className="container mx-auto px-4 py-8">
+    <div 
+      className="min-h-screen bg-gradient-secondary relative"
+      style={{
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed'
+      }}
+    >
+      <div className="absolute inset-0 bg-gradient-secondary/80"></div>
+      <div className="container mx-auto px-4 py-8 relative z-10">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8">
           <div className="mb-4 md:mb-0">
