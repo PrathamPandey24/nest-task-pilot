@@ -21,10 +21,10 @@ const priorityColors = {
 };
 
 const priorityCardColors = {
-  low: "bg-gradient-card border-muted/30",
-  medium: "bg-gradient-to-br from-warning/10 to-warning/5 border-warning/30",
-  high: "bg-gradient-to-br from-info/10 to-info/5 border-info/30",
-  urgent: "bg-gradient-to-br from-destructive/15 to-destructive/5 border-destructive/40",
+  low: "bg-gradient-to-br from-slate-800/50 to-slate-900/30 border-slate-600/30 shadow-md",
+  medium: "bg-gradient-to-br from-amber-900/40 to-amber-800/20 border-amber-500/40 shadow-amber-500/10 shadow-lg",
+  high: "bg-gradient-to-br from-blue-900/40 to-blue-800/20 border-blue-500/40 shadow-blue-500/10 shadow-lg",
+  urgent: "bg-gradient-to-br from-red-900/50 to-red-800/30 border-red-500/50 shadow-red-500/20 shadow-xl",
 };
 
 const categoryColors = {
@@ -46,8 +46,8 @@ export const TaskCard = ({ task, onUpdate, onDelete, onEdit }: TaskCardProps) =>
   };
 
   return (
-    <Card className={`${priorityCardColors[task.priority]} hover:border-primary/20 transition-all duration-300 ${
-      isOverdue ? 'border-destructive/50' : ''
+    <Card className={`font-poppins ${priorityCardColors[task.priority]} hover:border-primary/20 hover:scale-[1.02] transition-all duration-300 ${
+      isOverdue ? 'border-destructive/50 animate-pulse' : ''
     }`}>
       <CardHeader className="pb-3">
         <div className="flex items-start justify-between">
@@ -58,7 +58,7 @@ export const TaskCard = ({ task, onUpdate, onDelete, onEdit }: TaskCardProps) =>
               className="mt-1"
             />
             <div className="flex-1 min-w-0">
-              <h3 className={`font-semibold text-card-foreground ${
+              <h3 className={`font-poppins font-600 text-lg text-card-foreground ${
                 task.status === 'completed' ? 'line-through opacity-60' : ''
               }`}>
                 {task.title}
